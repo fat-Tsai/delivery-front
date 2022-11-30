@@ -1,0 +1,94 @@
+.container {
+  width: 100vw;
+  height: 100vh; // 需要设定为视口高度
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+// 顶部商铺、距离、自取或外卖
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  .store {
+    .top {
+      display: flex;
+      align-items: center;
+      .storeName {
+        font-size:  36rpx;
+        font-weight: bold;
+      }
+      .icon-jiantouyou {
+        font-size: 18rpx;
+        margin: 0 6rpx;
+      }
+    }
+    .distance {
+      display: inline-block;
+      font-size: 22rpx;
+      color: #a6a9aa;
+    }
+  }
+}
+.switch {
+  display: flex;
+  width: 200rpx;
+  height: 64rpx;
+  border-radius: 64rpx;
+  background-color: #f7f7fb;
+  .defaultStatus {
+    width: 100rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
+    color: #5f5e5e;
+    line-height: 64rpx;
+    text-align: center;
+    font-size: 28rpx;
+    font-weight: 500;
+  }
+  .activeStatus {
+    color: #ffffff;
+    background-color: black;
+  }
+}
+
+// 菜单主体
+.main-body {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  // 侧边菜单栏
+  .menu {
+    height: 100%;
+    width: 160rpx;
+    overflow: hidden;
+    van-sidebar {
+      .van-sidebar-item--selected {
+        border-color: var(--sidebar-background-color,#f7f8fa);;
+        color: var(--sidebar-selected-text-color,#323233);
+        font-weight: var(--sidebar-selected-font-weight,500);
+      }
+    }
+  }
+  // 菜品信息
+  .goods-body {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    .category {
+      .title {
+        padding-left: 20rpx;
+        font-size: 28rpx;
+      }
+    }
+  }
+}
+ 
+// 隐藏滚动条
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

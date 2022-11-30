@@ -1,4 +1,27 @@
 <!--index.wxml-->
 <view class="container">
-  
+  <!-- 顶部轮播图 -->
+  <view class="header">
+    <swiper indicator-dots="true" indicator-color="rgba(0,21,41,.8)" indicator-active-color="#d8dde3" autoplay="true">
+      <swiper-item wx:for="{{imgList}}" wx:key="id">
+        <image class="swiper_img" src="{{item.imgURL}}" mode="widthFix"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 自取/外卖 -->
+  <view class="section">
+    <view class="section_content">
+      <view class="left_ziqu">
+        <image src="../../static/icon/ziqu.png"></image>
+        <text class="type">自取</text>
+        <text class="dec">预约点单 到店自取</text>
+      </view>
+      <view class="right_waimai">
+        <image src="../../static/icon/waimai.png"></image>
+        <text class="type">外卖</text>
+        <text class="dec">无需接触 安全到家</text>
+      </view>
+    </view>
+  </view>
 </view>
+

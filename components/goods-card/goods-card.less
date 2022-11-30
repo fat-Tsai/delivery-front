@@ -1,0 +1,111 @@
+.goods {
+  width: 100%;
+  height: 200rpx;
+  padding: 10rpx 20rpx;
+  // background-color: white;
+  .goods-container {
+    display: flex;
+    width: 550rpx;
+    .goods-img {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      .img {
+        width: 180rpx;
+        height: 180rpx;
+      }
+    }
+    .goods-context {
+      position: relative;
+      margin-left: 10rpx;
+      overflow: hidden;
+      .categoryName {
+        font-size: 32rpx;
+      }
+      .desc {
+        margin: 8rpx 0;
+        width: 370rpx;
+        padding-right: 8rpx;
+        color: #5e5e5f;
+        font-size: 26rpx;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .sales {
+        font-size: 26rpx;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        height: 58rpx;
+        margin: 4rpx 0;
+        margin-right: 8rpx;
+        .price {
+          line-height: 58rpx;
+        }
+      }
+    }
+  }
+  // 弹出层
+  .popup {
+    max-height: 80vh;
+    .popup-container {
+      width: 100%;
+      height: 100%;
+      background-color: yellow;
+      .title {
+        height: 100rpx;
+        background-color: yellowgreen;
+        font-size: 40rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .flavors {
+        padding: 10rpx 0;
+        .flavors-container {
+          margin: 0 16rpx;
+          background-color: pink;
+          .flavorName {
+            color: #666666;
+            font-size: 30rpx;
+            font-weight: 600;
+          }
+          .level-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            height: 70rpx;
+            padding: 18rpx 0;
+            .level {
+              flex: 1;
+              border: transparent 2rpx solid;
+              margin: 0 20rpx;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 10rpx;
+              font-size: 30rpx;
+              background-color: #94949744;
+              height: 90%;
+            }
+            .selected {
+              background-color: brown;
+            }
+          }
+        }
+      }
+      .footer {
+        display: flex;
+        height: 80rpx;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20rpx;
+        background-color: blueviolet;
+      }
+    }
+  }
+}

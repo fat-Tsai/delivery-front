@@ -1,0 +1,51 @@
+<!--pages/my/my.wxml-->
+<view class="header">
+  <image src="../../static/images/my_bg3.png"></image>
+</view>
+
+<view class="card">
+  <view class="card_content">
+    <view class="userInfo">
+      <view wx:if="{{!isLogin}}" class="userInfo_container">
+        <image class="avatar" src="../../static/images/default_avatar.png" bindtap="popupShow"></image>
+        <view class="userName_container" bindtap="popupShow">
+          <text class="userName">点击登录授权</text>
+          <text class="iconfont icon-jiantouyou"></text>
+        </view> 
+      </view>
+      <view wx:else="{{isLogin}}" class="userInfo_container">
+        <image class="avatar" src="../../static/images/default_avatar.png" bindtap="gotoUserInfo"></image>
+        <view class="userName_container" bindtap="gotoUserInfo">
+          <text class="userName">{{isLogin ? '亲爱的用户' : '点击登录授权'}}</text>
+          <text class="iconfont icon-jiantouyou"></text>
+        </view> 
+      </view>
+    </view>
+    <view class="privilege">
+      <view class="level">
+        <view style="font-size: 38rpx;font-weight: bold;">{{ isLogin ? 'LV1' : 'LV0'}}</view>
+        <text style="color: #444444;font-size: 24rpx;">会员权益<text class="iconfont icon-jiantouyou" style="font-size: 16rpx;"></text></text>
+      </view>
+      <view class="experience">
+        <view class="left">
+          <text style="font-size: 20rpx;">{{ isLogin ? '40/100' : '0/0'}}</text>
+          <progress percent="{{ isLogin ? '40' : '0'}}" active stroke-width="5" border-radius="5" activeColor="#FFBE6A"/>
+          <text style="font-size: 24rpx;">距离下一等级只差60成长值</text>
+        </view>
+        <view class="right">
+          <image src="../../static/qrcode.png"></image>
+          <text style="color: #504d4d;">会员码</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<van-popup show="{{ show }}" position="bottom" custom-style="" closeable bind:close="onClose">
+  <view class="image-container">
+    <image src="../../static/logo.png" ></image>
+  </view>
+  <button open-type="getPhoneNumber" type="default" plain size="mini" bindgetphonenumber="getPhoneNumber">微信一键登录</button> 
+  <view class="notice-container">*授权登录即表示已阅读并同意<text>《隐私协议》</text></view>
+</van-popup> 

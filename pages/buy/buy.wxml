@@ -1,0 +1,42 @@
+<!--pages/buy/buy.wxml-->
+<view class="container">
+  <!-- 头部定位+外卖/自取 -->
+  <view class="address">
+    <!-- 店铺+定位 -->
+    <view class="store">
+      <view class="top">
+        <text class="storeName">漳州新华西路店</text>
+        <text class="iconfont icon-jiantouyou"></text>
+      </view>
+      <text class="distance">距离您1.7km</text>
+    </view>
+    <!-- 自提/外卖 -->
+    <view class="switch">
+      <view class="defaultStatus {{type == 0 ? 'activeStatus' : ''}}" bindtap="switchChange">自取</view>
+      <view class="defaultStatus {{type == 1 ? 'activeStatus' : ''}}" bindtap="switchChange">外卖</view>
+    </view>
+  </view>
+  <!-- 菜单主体 -->
+  <view class="main-body">
+    <!-- 菜品分类-侧边栏 -->
+    <scroll-view class="menu" scroll-y="true" scroll-with-animation scroll-into-view="menu-{{leftCur}}">
+      <van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+          <van-sidebar-item wx:for="{{categoryList}}" wx:key="{{item.id}}" title="{{item.name}}" id="menu-{{item.id}}"/>
+      </van-sidebar>
+    </scroll-view>
+    <!-- 菜品内容 -->
+    <scroll-view class="goods-body" scroll-y="true" scroll-with-animation scroll-into-view="goods-{{rightCur}}" bindscroll="rightScroll">
+      <view class="category" wx:for="{{categoryList}}" wx:key="{{item.id}}" id="goods-{{item.id}}">
+        <view class="title">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="goods-items">
+          <goods-card wx:for="{{item.type == 1 ? item.dishList : item.setmealList}}" wx:key="{{item.id}}" category="{{item}}"></goods-card>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+  
+

@@ -1,0 +1,29 @@
+{
+  "name": "delivery-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "build": "gulp css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fat-Tsai/delivery-front.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fat-Tsai/delivery-front/issues"
+  },
+  "homepage": "https://github.com/fat-Tsai/delivery-front#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.6"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "postcss-px2units": "^0.2.0"
+  }
+}

@@ -1,0 +1,81 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+}
+.address .store .top {
+  display: flex;
+  align-items: center;
+}
+.address .store .top .storeName {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.address .store .top .icon-jiantouyou {
+  font-size: 18rpx;
+  margin: 0 6rpx;
+}
+.address .store .distance {
+  display: inline-block;
+  font-size: 22rpx;
+  color: #a6a9aa;
+}
+.switch {
+  display: flex;
+  width: 200rpx;
+  height: 64rpx;
+  border-radius: 64rpx;
+  background-color: #f7f7fb;
+}
+.switch .defaultStatus {
+  width: 100rpx;
+  height: 64rpx;
+  border-radius: 64rpx;
+  color: #5f5e5e;
+  line-height: 64rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.switch .activeStatus {
+  color: #ffffff;
+  background-color: black;
+}
+.main-body {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.main-body .menu {
+  height: 100%;
+  width: 160rpx;
+  overflow: hidden;
+}
+.main-body .menu van-sidebar .van-sidebar-item--selected {
+  border-color: var(--sidebar-background-color, #f7f8fa);
+  color: var(--sidebar-selected-text-color, #323233);
+  font-weight: var(--sidebar-selected-font-weight, 500);
+}
+.main-body .goods-body {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+.main-body .goods-body .category .title {
+  padding-left: 20rpx;
+  font-size: 28rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

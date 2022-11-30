@@ -1,0 +1,49 @@
+<!--pages/components/goods-card.wxml-->
+<view class="goods">
+  <view class="goods-container">
+    <view class="goods-img">
+      <image class="img" src="http://rkt7dnyi5.hn-bkt.clouddn.com/{{category.image}}"></image>
+    </view>
+    <view class="goods-context">
+      <view class="categoryName">{{category.name}}</view>
+      <view style="font-size: 20rpx;">{{category.id}}</view>
+      <view class="desc">{{category.description}}</view>
+      <view class="sales">月销量500</view>
+      <view class="footer">
+        <view class="price"><text>￥{{category.price/100}}</text></view>
+        <van-button type="primary" size="small" bindtap="showDetailGoods">选规格</van-button>
+      </view>
+    </view>
+  </view>
+  <!-- 菜品弹出层 -->
+  <van-popup show="{{ show }}" position="bottom" closeable bind:close="onClose">
+    <view class="popup">
+      <view class="popup-container">
+        <!-- 商品名称 -->
+        <view class="title">
+          <text>{{category.name}}</text>
+        </view>
+        <view class="flavors">
+          <view class="flavors-container">
+            <view wx:for="{{category.flavorList}}" wx:for-item="flavor" wx:for-index="flavorIndex" wx:key="flavorIndex" data-id="index"> 
+              <!-- 商品口味 -->
+              <view class="flavorName">{{flavor.name}}</view>
+              <!-- 选择口味级别 -->
+              <view class="level-container">
+                <view class="oneLevel"></view>
+                <view id="{{flavorIndex}}" class="level {{ flavor.isActive == index ? 'selected' : ''}}" wx:for="{{flavor.value}}"  bindtap="selectApply" data-id="{{index}}">{{item}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="footer">
+          <text class="price">￥{{category.price/100}}</text>
+          <van-button type="primary" size="small" bindtap="addCart">加入购物车</van-button>
+        </view>
+      </view>
+      
+    </view>
+  </van-popup> 
+</view>
+
+

@@ -1,0 +1,109 @@
+.header image {
+  width: 100%;
+}
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.card .card_content {
+  width: 80%;
+  background: rgba(255, 255, 255, 0.87);
+  box-shadow: 6rpx 6rpx 6rpx 1rpx rgba(0, 0, 0, 0.2);
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: absolute;
+  top: 380rpx;
+}
+.card .card_content .userInfo .userInfo_container {
+  height: 130rpx;
+}
+.card .card_content .userInfo .userInfo_container .avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 140rpx;
+  transform: translateY(-50%) translateX(10%);
+}
+.card .card_content .userInfo .userInfo_container .userName_container {
+  transform: translateY(-160%);
+  display: flex;
+  align-items: center;
+}
+.card .card_content .userInfo .userInfo_container .userName_container .userName {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.card .card_content .userInfo .userInfo_container .userName_container .icon-jiantouyou {
+  font-size: 18rpx;
+}
+.card .card_content .privilege {
+  width: 500rpx;
+  height: 200rpx;
+  border-radius: 30rpx;
+  background: #f7e3885d;
+  padding: 15rpx;
+  margin-bottom: 20rpx;
+}
+.card .card_content .privilege .level {
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card .card_content .privilege .experience {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+}
+.card .card_content .privilege .experience .left {
+  width: 70%;
+}
+.card .card_content .privilege .experience .left progress {
+  padding: 8rpx 0;
+}
+.card .card_content .privilege .experience .right {
+  width: 70rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card .card_content .privilege .experience .right image {
+  padding-top: 5rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.card .card_content .privilege .experience .right text {
+  font-size: 20rpx;
+}
+.van-popup .image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+  margin-bottom: 60rpx;
+}
+.van-popup .image-container image {
+  width: 200rpx;
+  height: 200rpx;
+}
+.van-popup button {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  border-radius: 40rpx;
+}
+.van-popup .notice-container {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+  color: #a6a9aa;
+  font-size: 22rpx;
+  text-align: center;
+}
+.van-popup .notice-container text {
+  color: #000;
+}

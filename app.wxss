@@ -1,10 +1,15 @@
 /**app.wxss**/
 .container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
+  background-color: #b3b4b42d;
+  height: 1334rpx;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* box-sizing: border-box; */
 } 
+/* 导入iconfont */
+@import 'static/iconfont.wxss'
+
+/* 页面重要的两个颜色 绿色 #5FE0A3 黄色 #FFE91F */

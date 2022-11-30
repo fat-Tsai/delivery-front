@@ -1,0 +1,60 @@
+.header {
+  width: 100%;
+  // 轮播图
+  swiper {
+    width: 100%;
+    height: 400rpx;
+    .swiper_img {
+      width: 100%;
+    }
+  }
+}
+// 自取/外卖
+.section {
+  display: flex;
+  justify-content: center;
+  margin: 0 30rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-shadow: 6rpx 6rpx 6rpx  1rpx rgba(0, 0, 0, 0.2);
+  margin-top: 20rpx;
+  .section_content {
+    display: flex;
+    justify-content: space-between;
+    width:690rpx;
+    height:224rpx;
+    .left_ziqu, .right_waimai {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction:column;
+      position: relative;
+    }
+    image {
+      width: 100rpx;
+      height: 100rpx;
+    }
+    .type {
+      font-size: 38rpx;
+      color: #565657;
+      font-weight: bold;
+    }
+    .dec {
+      font-size: 22rpx;
+      color: #a6a9aa;
+    }
+    .left_ziqu::after {
+      content: "";
+      display:block;
+      width:1rpx;
+      height:150rpx;
+      background-color: #a6a9aa88;
+      position:absolute;
+      right:0;
+      top:0;
+      bottom:0;
+      margin:auto;
+    }
+  }
+}

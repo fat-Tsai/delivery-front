@@ -1,0 +1,109 @@
+.goods {
+  width: 100%;
+  height: 200rpx;
+  padding: 10rpx 20rpx;
+}
+.goods .goods-container {
+  display: flex;
+  width: 550rpx;
+}
+.goods .goods-container .goods-img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.goods .goods-container .goods-img .img {
+  width: 180rpx;
+  height: 180rpx;
+}
+.goods .goods-container .goods-context {
+  position: relative;
+  margin-left: 10rpx;
+  overflow: hidden;
+}
+.goods .goods-container .goods-context .categoryName {
+  font-size: 32rpx;
+}
+.goods .goods-container .goods-context .desc {
+  margin: 8rpx 0;
+  width: 370rpx;
+  padding-right: 8rpx;
+  color: #5e5e5f;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.goods .goods-container .goods-context .sales {
+  font-size: 26rpx;
+}
+.goods .goods-container .goods-context .footer {
+  display: flex;
+  justify-content: space-between;
+  height: 58rpx;
+  margin: 4rpx 0;
+  margin-right: 8rpx;
+}
+.goods .goods-container .goods-context .footer .price {
+  line-height: 58rpx;
+}
+.goods .popup {
+  max-height: 80vh;
+}
+.goods .popup .popup-container {
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+}
+.goods .popup .popup-container .title {
+  height: 100rpx;
+  background-color: yellowgreen;
+  font-size: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.goods .popup .popup-container .flavors {
+  padding: 10rpx 0;
+}
+.goods .popup .popup-container .flavors .flavors-container {
+  margin: 0 16rpx;
+  background-color: pink;
+}
+.goods .popup .popup-container .flavors .flavors-container .flavorName {
+  color: #666666;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.goods .popup .popup-container .flavors .flavors-container .level-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 70rpx;
+  padding: 18rpx 0;
+}
+.goods .popup .popup-container .flavors .flavors-container .level-container .level {
+  flex: 1;
+  border: transparent 2rpx solid;
+  margin: 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  background-color: #94949744;
+  height: 90%;
+}
+.goods .popup .popup-container .flavors .flavors-container .level-container .selected {
+  background-color: brown;
+}
+.goods .popup .popup-container .footer {
+  display: flex;
+  height: 80rpx;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  background-color: blueviolet;
+}
