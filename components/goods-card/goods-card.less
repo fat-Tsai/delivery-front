@@ -2,31 +2,34 @@
   width: 100%;
   height: 200rpx;
   padding: 10rpx 20rpx;
-  // background-color: white;
+  margin-bottom: 10rpx;
   .goods-container {
+    // background-color: yellow;
     display: flex;
     width: 550rpx;
     .goods-img {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
       .img {
-        width: 180rpx;
-        height: 180rpx;
+        width: 200rpx;
+        height: 200rpx;
       }
     }
     .goods-context {
+      flex: 1;
+      // background-color: pink;
+      display: flex;
+      flex-direction: column;
       position: relative;
-      margin-left: 10rpx;
+      margin-left: 15rpx;
       overflow: hidden;
       .categoryName {
         font-size: 32rpx;
       }
       .desc {
+        // background-color: yellowgreen;
         margin: 8rpx 0;
-        width: 370rpx;
-        padding-right: 8rpx;
+        // width: 370rpx;
         color: #5e5e5f;
         font-size: 26rpx;
         overflow: hidden;
@@ -36,15 +39,43 @@
       .sales {
         font-size: 26rpx;
       }
-      .footer {
+      .goods-footer {
+        // background-color: blueviolet;
         display: flex;
         justify-content: space-between;
         height: 58rpx;
         margin: 4rpx 0;
         margin-right: 8rpx;
+        // background-color: blueviolet;
         .price {
           line-height: 58rpx;
         }
+        .scaleBtn {
+          margin-right: 0;
+          overflow: visible;
+          .weui-badge {
+            position: absolute;
+            top: -16rpx;
+            right: -8rpx;
+          }
+          .weui-badge__status {
+            background-color: #5ad897;
+            color: #fff;
+          }
+        }
+        .button-container {
+          display: flex;
+          align-items: center;
+          height: 58rpx;
+          .number {
+            margin: 0 8rpx;
+          }
+          .icon-jian, .icon-jia{
+            color: #07C160;
+            font-size: 48rpx;
+          }
+        }
+        
       }
     }
   }
@@ -105,6 +136,50 @@
         align-items: center;
         padding: 0 20rpx;
         background-color: blueviolet;
+      }
+    }
+  }
+}
+// 菜品选择弹窗
+.dialog {
+  .flavors {
+    min-height: 1vh;
+    max-height: 60vh;
+    overflow: auto;
+    padding: 10rpx 0;
+    .flavors-container {
+      margin: 0 16rpx;
+      .flavorName {
+        color: #5A5B5C;
+        font-size: 30rpx;
+        font-weight: 600;
+      }
+      .level-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // justify-content: space-between;
+        padding: 18rpx 0;
+        .level {
+          // flex: 1;
+          border: transparent 2rpx solid;
+          padding: 0 30rpx;
+          margin: 0 10rpx;
+          margin-bottom: 20rpx;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10rpx;
+          font-size: 30rpx;
+          background-color: #F5F5F5;
+          color: #919293;
+          height: 90%;
+        }
+        .selected {
+          background-color: #ADB838;
+          color: #fff;
+        }
       }
     }
   }

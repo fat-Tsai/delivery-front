@@ -26,17 +26,28 @@
     </scroll-view>
     <!-- 菜品内容 -->
     <scroll-view class="goods-body" scroll-y="true" scroll-with-animation scroll-into-view="goods-{{rightCur}}" bindscroll="rightScroll">
-      <view class="category" wx:for="{{categoryList}}" wx:key="{{item.id}}" id="goods-{{item.id}}">
+      <view class="category" wx:for="{{categoryList}}" wx:for-item="category" wx:key="{{category.id}}" id="goods-{{category.id}}">
         <view class="title">
-          <text>{{item.name}}</text>
+          <text>{{category.name}}</text>
         </view>
         <view class="goods-items">
-          <goods-card wx:for="{{item.type == 1 ? item.dishList : item.setmealList}}" wx:key="{{item.id}}" category="{{item}}"></goods-card>
+          <goods-card wx:for="{{category.type == 1 ? category.dishList : category.setmealList}}" wx:key="{{category.id}}" category="{{item}}" type="{{category.type}}"></goods-card>
         </view>
       </view>
+      <view class="space-for-cart"></view>
     </scroll-view>
   </view>
+  <!-- 购物车 -->
+  <view class="cart">
+    <view class="cart-container">
+      <view class="left">
+        <image class="cart-img" src="../../static/cart.png" alt=""/>
+        <text class="weui-badge weui-badge__status">{{cartList.length}}</text>
+      </view>
+      <view class="price">￥520</view>
+      <view class="right">
+        <button type="primary" class="pay-btn">去结算</button>
+      </view>
+    </view>
+  </view>
 </view>
-
-  
-

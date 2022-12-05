@@ -14,6 +14,26 @@ Page({
     rightCur: 0,
     //box盒子高度数组
     boxheight: [],
+    // 购物车列表
+    cartList: []
+  },
+  /**
+   * 获取购物车列表
+   */
+  getCartList() {
+    api.getShoppingCartList().then(res => {
+      if(res.code === 200) {
+        this.setData({
+          cartList: res.data
+          // ['cartList.dishFlavor']: JSON.parse(res.data.dishFlavor)
+        })
+        console.log(res.data[0].dishFlavor)
+        console.log(typeof res.data[0].dishFlavor)
+        console.log(JSON.parse(res.data[0].dishFlavor))
+      }else {
+        console.log('获取购物车列表失败')
+      }
+    })
   },
   /**
    * 获取菜品分类
@@ -81,7 +101,7 @@ Page({
         })
       })
     }, 600);
-    console.log(this.data.boxheight)
+    // console.log(this.data.boxheight)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -90,6 +110,7 @@ Page({
     // 获取菜品分类
     this.getCategoryList();
     this.computedHeight();
+    this.getCartList();
   },
 
   /**

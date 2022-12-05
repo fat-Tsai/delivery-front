@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLogin: wx.getStorage('token') ? true : false,
+    isLogin: wx.getStorageSync('token') ? true : false,
     show: false,
     codeBody: {
       codeForOpenId: '',
@@ -31,6 +31,7 @@ Page({
   getPhoneNumber(e) {
     // 用户授权登录
     if(e.detail.code) {
+      var _that = this
       this.setData({
         ['codeBody.codeForPhone']: e.detail.code
       })
@@ -44,12 +45,17 @@ Page({
             })
             api.getLogin(this.data.codeBody).then(res => {
               if(res.code === 200) {
-                wx.setStorageSync('token', res.data)
-                this.setData({
-                  isLogin: true
-                })
-                this.setData({
-                  show: false
+                wx.setStorage({
+                  key: "token",
+                  data: res.data,
+                  success() {
+                    _that.setData({
+                      isLogin: true
+                    })
+                    _that.setData({
+                      show: false
+                    })
+                  }
                 })
               }
             })
@@ -66,7 +72,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    console.log(this.data.isLogin)
+    console.log(wx.getStorageSync('token'))
   },
 
   /**

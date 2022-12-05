@@ -1,4 +1,5 @@
 /**app.wxss**/
+/* 导入iconfont */
 .container {
   height: 100%;
   background-color: #b3b4b42d;
@@ -9,7 +10,7 @@
   /* justify-content: space-between; */
   /* box-sizing: border-box; */
 } 
-/* 导入iconfont */
-@import 'static/iconfont.wxss'
 
+@import 'static/iconfont.wxss'
 /* 页面重要的两个颜色 绿色 #5FE0A3 黄色 #FFE91F */
+/* 按钮颜色 ADB838 */

@@ -77,11 +77,68 @@
     flex: 1;
     height: 100%;
     overflow: hidden;
+    // padding-bottom: 300rpx; // 给购物车留一个空间
     .category {
       .title {
         padding-left: 20rpx;
         font-size: 28rpx;
       }
+    }
+    .space-for-cart {
+      height: 100rpx;
+    }
+  }
+}
+
+.cart {
+  background-color: plum;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// 购物车
+.cart-container {
+  width: 80%;
+  background-color: #fff;
+  z-index: 299;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2);
+  border-radius: 48rpx;
+  .left {
+    padding-left: 46rpx;
+		margin-right: 30rpx;
+		position: relative;
+    .cart-img {
+      width: 96rpx;
+      height: 96rpx;
+      position: relative;
+      margin-top: -48rpx;
+    }
+    .weui-badge {
+      position: absolute;
+      top: -50rpx;
+      left: 100rpx;
+      background-color: #ADB838;
+    }
+  }
+  .price {
+    flex: 1;
+  }
+  .right {
+    button {
+      height: 100%;
+      padding: 0 30rpx;
+      color: #FFFFFF;
+      border-radius: 0 50rpx 50rpx 0;
+      display: flex;
+      align-items: center;
+      background-color: #ADB838;
+      border: #ADB838;
+      font-size: 32rpx;
     }
   }
 }

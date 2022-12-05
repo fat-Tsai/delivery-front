@@ -107,3 +107,10 @@
 .van-popup .notice-container text {
   color: #000;
 }
+.afterCard {
+  width: 500rpx;
+  height: 500rpx;
+  background-color: violet;
+  position: relative;
+  top: 300rpx;
+}

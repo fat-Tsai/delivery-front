@@ -2,31 +2,66 @@
 <view class="goods">
   <view class="goods-container">
     <view class="goods-img">
-      <image class="img" src="http://rkt7dnyi5.hn-bkt.clouddn.com/{{category.image}}"></image>
+      <!-- <image class="img" src="http://rkt7dnyi5.hn-bkt.clouddn.com/{{category.image}}"></image> -->
+      <image class="img" src="../../static/noImg.png"></image>
     </view>
     <view class="goods-context">
       <view class="categoryName">{{category.name}}</view>
-      <view style="font-size: 20rpx;">{{category.id}}</view>
       <view class="desc">{{category.description}}</view>
       <view class="sales">月销量500</view>
-      <view class="footer">
+      <view class="goods-footer">
         <view class="price"><text>￥{{category.price/100}}</text></view>
-        <van-button type="primary" size="small" bindtap="showDetailGoods">选规格</van-button>
+        <!-- <van-button wx:if="{{type === 1 && category.flavorList.length > 0}}" type="primary" size="small" bindtap="showDetailGoods" class="scaleBtn">选规格 <text class="weui-badge">8</text></van-button> -->
+        <button wx:if="{{type === 1 && category.flavorList.length > 0}}" type="primary" size="small" bindtap="showDetailGoods" class="scaleBtn" size="mini">选规格
+          <view hidden="{{!popupCart.number}}">
+            <text class="weui-badge weui-badge__status">{{popupCart.number}}</text>
+          </view>
+        </button>
+        <view wx:else="{{type === 2 || category.flavorList.length === 0}}" class="button-container">
+          <text wx:if="{{setmealShow}}" class="iconfont icon-jian"  bindtap="subCart"></text>
+          <text wx:if="{{setmealShow}}" class="number">{{popupCart.number}}</text>
+          <text class="iconfont icon-jia" bindtap="addCart"></text>
+        </view>
       </view>
     </view>
   </view>
-  <!-- 菜品弹出层 -->
-  <van-popup show="{{ show }}" position="bottom" closeable bind:close="onClose">
+  <!-- 菜品对话框 -->
+  <van-dialog
+    class="dialog"
+    use-slot
+    title="{{category.name}}"
+    show="{{ show }}"
+    confirmButtonText="加入购物车"
+    confirm-button-color="#ADB838"
+    closeOnClickOverlay
+    bind:close="onClose"
+    bind:confirm="addCart"
+  >
+    <!-- 商品口味 -->
+    <view class="flavors">
+      <view wx:if="{{type===1}}" class="flavors-container">
+        <view wx:for="{{category.flavorList}}" wx:for-item="flavor" wx:for-index="flavorIndex" wx:key="flavorIndex" data-id="index"> 
+          <view class="flavorName">{{flavor.name}}</view>
+          <!-- 选择口味级别 -->
+          <view class="level-container">
+            <view id="{{flavorIndex}}" class="level {{ flavor.isActive == index ? 'selected' : ''}}" wx:for="{{flavor.value}}"  bindtap="selectApply" data-id="{{index}}">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-dialog>
+  <!-- 菜品弹出层--废弃 -->
+  <van-popup show="{{ isShow }}" position="bottom" closeable bind:close="onClose">
     <view class="popup">
       <view class="popup-container">
         <!-- 商品名称 -->
         <view class="title">
           <text>{{category.name}}</text>
         </view>
+        <!-- 商品口味 -->
         <view class="flavors">
-          <view class="flavors-container">
+          <view wx:if="{{type===1}}" class="flavors-container">
             <view wx:for="{{category.flavorList}}" wx:for-item="flavor" wx:for-index="flavorIndex" wx:key="flavorIndex" data-id="index"> 
-              <!-- 商品口味 -->
               <view class="flavorName">{{flavor.name}}</view>
               <!-- 选择口味级别 -->
               <view class="level-container">
@@ -36,14 +71,13 @@
             </view>
           </view>
         </view>
+        <!-- 加入购物车 -->
         <view class="footer">
           <text class="price">￥{{category.price/100}}</text>
           <van-button type="primary" size="small" bindtap="addCart">加入购物车</van-button>
         </view>
       </view>
-      
     </view>
   </van-popup> 
 </view>
-
 

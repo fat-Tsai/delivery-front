@@ -15,6 +15,9 @@
   "usingComponents": {
     "van-button": "@vant/weapp/button/index"
   },
+  "useExtendedLib": {
+    "weui": true
+  },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "selectedColor": "#5FE0A3",

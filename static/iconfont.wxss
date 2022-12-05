@@ -1,10 +1,8 @@
-/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-/* 图标每次都需要生成在线cdn */
 @font-face {
   font-family: 'iconfont';  /* Project id 3757638 */
-  src: url('//at.alicdn.com/t/c/font_3757638_kljmo4y2n5r.woff2?t=1668231233997') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3757638_kljmo4y2n5r.woff?t=1668231233997') format('woff'),
-       url('//at.alicdn.com/t/c/font_3757638_kljmo4y2n5r.ttf?t=1668231233997') format('truetype');
+  src: url('//at.alicdn.com/t/c/font_3757638_n9as9xnvuf.woff2?t=1670118859889') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3757638_n9as9xnvuf.woff?t=1670118859889') format('woff'),
+       url('//at.alicdn.com/t/c/font_3757638_n9as9xnvuf.ttf?t=1670118859889') format('truetype');
 }
 
 .iconfont {
@@ -13,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-jian:before {
+  content: "\e8b1";
+}
+
+.icon-jia:before {
+  content: "\e8c8";
 }
 
 .icon-jiantouyou:before {

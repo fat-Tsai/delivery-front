@@ -74,6 +74,58 @@
   padding-left: 20rpx;
   font-size: 28rpx;
 }
+.main-body .goods-body .space-for-cart {
+  height: 100rpx;
+}
+.cart {
+  background-color: plum;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-container {
+  width: 80%;
+  background-color: #fff;
+  z-index: 299;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2);
+  border-radius: 48rpx;
+}
+.cart-container .left {
+  padding-left: 46rpx;
+  margin-right: 30rpx;
+  position: relative;
+}
+.cart-container .left .cart-img {
+  width: 96rpx;
+  height: 96rpx;
+  position: relative;
+  margin-top: -48rpx;
+}
+.cart-container .left .weui-badge {
+  position: absolute;
+  top: -50rpx;
+  left: 100rpx;
+  background-color: #ADB838;
+}
+.cart-container .price {
+  flex: 1;
+}
+.cart-container .right button {
+  height: 100%;
+  padding: 0 30rpx;
+  color: #FFFFFF;
+  border-radius: 0 50rpx 50rpx 0;
+  display: flex;
+  align-items: center;
+  background-color: #ADB838;
+  border: #ADB838;
+  font-size: 32rpx;
+}
 ::-webkit-scrollbar {
   width: 0;
   height: 0;

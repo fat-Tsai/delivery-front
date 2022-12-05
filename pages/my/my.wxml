@@ -41,6 +41,10 @@
   </view>
 </view>
 
+<view class="afterCard">
+  <view>找找我在哪</view>
+  <view class="iconfont icon-jianjian"></view>
+</view>
 
 <van-popup show="{{ show }}" position="bottom" custom-style="" closeable bind:close="onClose">
   <view class="image-container">

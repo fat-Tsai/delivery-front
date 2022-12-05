@@ -1,5 +1,6 @@
 const app = getApp()
-const token = wx.getStorageSync('token')
+// const token = wx.getStorageSync('token')
+const token = wx.getStorageSync("token")
 
 const request = (method, url, data) => {
   return new Promise((resolve, reject) => {
@@ -32,7 +33,10 @@ const api = {
   getUserPhone: (data) => request('POST', `user/getPhone`, data),
   getCategoryList: () => request('GET',`category/list`),
   // getDishList: (data) => request('GET', `dish/list?categoryId=${data}`)
-  getFlavorList: (data) => request('GET',`dish/getFlavor?id=${data}`)
+  getFlavorList: (data) => request('GET',`dish/getFlavor?id=${data}`),
+  shoppingCartAdd: (data) => request('POST',`cart/add`,data),
+  shoppingCartSub: (data) => request('POST',`cart/sub`,data),
+  getShoppingCartList: () => request('GET',`cart/list`)
 }
 
 module.exports = {
