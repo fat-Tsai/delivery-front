@@ -90,19 +90,20 @@
   }
 }
 
+// 购物车
 .cart {
   background-color: plum;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-// 购物车
+// 购物车主体
 .cart-container {
   width: 80%;
   background-color: #fff;
   z-index: 299;
   position: absolute;
-  bottom: 0;
+  bottom: 10rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -142,6 +143,80 @@
     }
   }
 }
+.popup {
+  width: 100%;
+  // position: fixed;
+  // bottom: 120rpx;
+}
+// 购物车弹出层
+.popup-container {
+  width: 100%;
+  min-height: 1vh;
+  max-height: 50vh;
+  position: relative;
+  // overflow: hidden;
+  &::after{
+    content: '';
+    display: block;
+    height: 128rpx;
+    width: 100%;
+  }
+  .clear {
+    background-color: #E8EACF;
+    color: #ADB838;
+    text-align: end;
+    padding-right: 20rpx;
+    font-size: 24rpx;
+  }
+  .dish-item {
+    border-bottom: rgb(184, 177, 177) 2rpx solid;
+    margin: 0 20rpx;;
+    .item-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20rpx 0;
+      .name {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        // background-color: rgb(236, 172, 236);
+        .dishName {
+          font-size: 24rpx;
+          color: #5A5B5C;
+        }
+        .dishFlavor {
+          color: #919293;
+          font-size: 24rpx;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+      .price {
+        flex: 1;
+        // background-color: plum;
+        font-size: 28rpx;
+      }
+      .number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background-color: pink;
+        .icon-jian, .icon-jia {
+          color: #ADB838;
+          margin: 0 10rpx;
+          font-size: 46rpx;
+        }
+      }
+    }
+    
+  }
+  // .space-for-cart {
+  //   // position: absolute;
+  //   height: 128rpx; // 为购物车位置预留空间
+  // }
+}
  
 // 隐藏滚动条
 ::-webkit-scrollbar {
@@ -149,3 +224,6 @@
   height: 0;
   color: transparent;
 }
+// .space-for-cart {
+//   height: 128rpx;
+// }

@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/fat-Tsai/delivery-front#readme",
   "dependencies": {
-    "@vant/weapp": "^1.10.6"
+    "@vant/weapp": "^1.10.6",
+    "miniprogram-computed": "^4.4.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

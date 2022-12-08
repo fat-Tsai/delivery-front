@@ -3,6 +3,6 @@
     "van-sidebar": "@vant/weapp/sidebar/index",
     "van-sidebar-item": "@vant/weapp/sidebar-item/index",
     "goods-card": "../../components/goods-card/goods-card",
-    "van-notify": "@vant/weapp/notify/index"
+    "van-popup": "@vant/weapp/popup/index"
   }
 }

@@ -1,0 +1,36 @@
+.wrapper {
+  background-color: #F1F8FA;
+  width: 100vw;
+  height: 100%;
+  padding-top: 38rpx;
+}
+.wrapper .top,
+.wrapper .main,
+.wrapper .method {
+  margin-bottom: 38rpx;
+}
+.space-for-page {
+  height: 88rpx;
+  width: 100%;
+}
+.pay {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 22;
+}
+.pay .pay-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.pay .pay-container .left {
+  padding-left: 20rpx;
+  font-size: 28rpx;
+}
+.pay .pay-container .left .price {
+  font-size: 32rpx;
+}

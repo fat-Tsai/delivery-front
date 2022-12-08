@@ -88,7 +88,7 @@
   background-color: #fff;
   z-index: 299;
   position: absolute;
-  bottom: 0;
+  bottom: 10rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -125,6 +125,69 @@
   background-color: #ADB838;
   border: #ADB838;
   font-size: 32rpx;
+}
+.popup {
+  width: 100%;
+}
+.popup-container {
+  width: 100%;
+  min-height: 1vh;
+  max-height: 50vh;
+  position: relative;
+}
+.popup-container::after {
+  content: '';
+  display: block;
+  height: 128rpx;
+  width: 100%;
+}
+.popup-container .clear {
+  background-color: #E8EACF;
+  color: #ADB838;
+  text-align: end;
+  padding-right: 20rpx;
+  font-size: 24rpx;
+}
+.popup-container .dish-item {
+  border-bottom: #b8b1b1 2rpx solid;
+  margin: 0 20rpx;
+}
+.popup-container .dish-item .item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.popup-container .dish-item .item-container .name {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+.popup-container .dish-item .item-container .name .dishName {
+  font-size: 24rpx;
+  color: #5A5B5C;
+}
+.popup-container .dish-item .item-container .name .dishFlavor {
+  color: #919293;
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.popup-container .dish-item .item-container .price {
+  flex: 1;
+  font-size: 28rpx;
+}
+.popup-container .dish-item .item-container .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup-container .dish-item .item-container .number .icon-jian,
+.popup-container .dish-item .item-container .number .icon-jia {
+  color: #ADB838;
+  margin: 0 10rpx;
+  font-size: 46rpx;
 }
 ::-webkit-scrollbar {
   width: 0;

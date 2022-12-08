@@ -1,5 +1,6 @@
 // pages/components/goods-card.js
 const api = require('../../utils/request').api
+const computedBehavior = require('miniprogram-computed').behavior
 Component({
   /**
    * 组件是否样式隔离
@@ -7,6 +8,7 @@ Component({
   options: {
     styleIsolation: 'apply-shared'
   },
+  behaviors: [computedBehavior],
   /**
    * 组件的属性列表
    */
@@ -16,7 +18,10 @@ Component({
       required: true // 必填项
     },
     type: Number,
-    required: true
+    required: true,
+    cartList: {
+      type: Array
+    }
   },
 
   /**
@@ -35,9 +40,20 @@ Component({
       image: '',
       number: null
     },
-    setmealShow: false
+    setmealShow: false,
+    // 商品的件数
+    // count: 0
   },
-
+  computed: {
+    getCartNum(properties) {
+      return properties.cartList.reduce((acc, cur) => {
+        if(cur.dishId === properties.category.id) {
+          return acc+cur.number
+        }
+        return acc
+      },0)
+    }
+  },
   /**
    * 组件的方法列表
    */
@@ -55,6 +71,7 @@ Component({
               setmealShow: false
             })
           }
+          this.triggerEvent('customevent', this.properties.popupCart)
         }else {
           console.log('删除购物车失败')
         }
@@ -86,15 +103,17 @@ Component({
         ['popupCart.amount']: this.properties.category.price,
         ['popupCart.image']: this.properties.category.image
       })
-      console.log(this.properties.popupCart)
+      console.log('打印口味出来看看',this.data.popupCart)
       // 向后端发送请求
+      this.properties.popupCart.id = null
       api.shoppingCartAdd(this.properties.popupCart).then(res => {
         if(res.code === 200) {
           this.setData({
             popupCart: res.data,
             show: false
           })
-          console.log(this.data.popupCart)
+          // 触发父组件
+          this.triggerEvent('customevent', this.properties.popupCart)
         } else {
           console.log('加入购物车失败')
         }

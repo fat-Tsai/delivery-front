@@ -4,7 +4,7 @@
     "pages/buy/buy",
     "pages/my/my",
     "pages/order/order",
-    "pages/test/test"
+    "pages/pay/pay"
   ],
   "window":{
     "backgroundTextStyle":"light",

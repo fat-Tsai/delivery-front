@@ -11,10 +11,10 @@
       <view class="sales">月销量500</view>
       <view class="goods-footer">
         <view class="price"><text>￥{{category.price/100}}</text></view>
-        <!-- <van-button wx:if="{{type === 1 && category.flavorList.length > 0}}" type="primary" size="small" bindtap="showDetailGoods" class="scaleBtn">选规格 <text class="weui-badge">8</text></van-button> -->
         <button wx:if="{{type === 1 && category.flavorList.length > 0}}" type="primary" size="small" bindtap="showDetailGoods" class="scaleBtn" size="mini">选规格
-          <view hidden="{{!popupCart.number}}">
-            <text class="weui-badge weui-badge__status">{{popupCart.number}}</text>
+          <view hidden="{{!getCartNum}}">
+            <!-- 这里需要写一个监听，让父子组件商品件数相同 -->
+            <text class="weui-badge weui-badge__status">{{ getCartNum }}</text>
           </view>
         </button>
         <view wx:else="{{type === 2 || category.flavorList.length === 0}}" class="button-container">

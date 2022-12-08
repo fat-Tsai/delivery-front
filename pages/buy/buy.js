@@ -1,9 +1,12 @@
 // pages/buy/buy.js
 const api = require('../../utils/request').api
+// 导入computed
+const computedBehavior = require('miniprogram-computed').behavior
 Page({
   /**
    * 页面的初始数据
    */
+  behaviors: [computedBehavior],
   data: {
     type: 0, // 自取或外卖的标志位
     activeKey: 0, // 侧边栏
@@ -15,7 +18,90 @@ Page({
     //box盒子高度数组
     boxheight: [],
     // 购物车列表
-    cartList: []
+    cartList: [],
+    // 购物车弹出层
+    show: false,
+    totalPrice: 0.00
+  },
+  computed: {
+    totalPrice(data) {
+      var price = 0.00
+      data.cartList.map((item) => {
+        price += (item.amount/100)*item.number
+      })
+      return price
+    }
+  },
+  subCart(e) {
+    console.log('我点击了删除购物车')
+    const idx = e.target.id
+    var that = this 
+    api.shoppingCartSub(that.data.cartList[idx]).then(res => {
+      if(res.code === 200) {
+        console.log(res)
+        that.data.cartList[idx].number = res.data.number
+        // 待优化
+        const len = that.data.cartList.length
+        let arr = []
+        for(let i=0;i<len;i++) {
+          if(that.data.cartList[i].number) {
+            arr.push(that.data.cartList[i])
+          }
+        }
+        console.log("arr:",arr)
+        this.setData({
+          cartList: arr
+        })
+      }
+    })
+  },
+  addCart(e) {
+    console.log('我点击了添加购物车')
+    console.log(e)
+    console.log(e.target.id)
+    const idx = e.target.id
+    var that = this 
+    api.shoppingCartAdd(that.data.cartList[idx]).then(res => {
+      if(res.code === 200) {
+        this.setData({
+          [`cartList[${idx}].number`]: res.data.number
+        })
+      }
+    })
+  },
+  toPay() {
+    wx.navigateTo({
+      url: '../pay/pay'
+    })
+    console.log('该跳转到支付页面了')
+  },
+  // 父子组件通信
+  async refresh(e) {
+    this.getCartList()
+  },
+  clearCart() {
+    api.clearCart().then(res => {
+      if(res.code === 200) {
+        console.log('删除购物车成功')
+        this.setData({
+          cartList: [],
+          totalPrice: 0
+        })
+      }
+    })
+  },
+  onClose() {
+    this.setData({
+      show: false
+    })
+  },
+  /**
+   * 购物车弹出
+   */
+  popupShow() {
+    this.setData({
+      show: !this.data.show
+    })
   },
   /**
    * 获取购物车列表
@@ -25,11 +111,7 @@ Page({
       if(res.code === 200) {
         this.setData({
           cartList: res.data
-          // ['cartList.dishFlavor']: JSON.parse(res.data.dishFlavor)
         })
-        console.log(res.data[0].dishFlavor)
-        console.log(typeof res.data[0].dishFlavor)
-        console.log(JSON.parse(res.data[0].dishFlavor))
       }else {
         console.log('获取购物车列表失败')
       }
@@ -117,14 +199,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // this.getTotalPrice()
   },
 
   /**

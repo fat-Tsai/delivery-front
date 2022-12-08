@@ -1,11 +1,13 @@
-// pages/test/test.js
+// pages/pay/pay.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    value: '18876211229', // 页面手机号
+    radio: '1', // 支付方式
+    list: [{},{},{},{},{}] 
   },
 
   /**

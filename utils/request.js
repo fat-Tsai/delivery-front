@@ -36,7 +36,8 @@ const api = {
   getFlavorList: (data) => request('GET',`dish/getFlavor?id=${data}`),
   shoppingCartAdd: (data) => request('POST',`cart/add`,data),
   shoppingCartSub: (data) => request('POST',`cart/sub`,data),
-  getShoppingCartList: () => request('GET',`cart/list`)
+  getShoppingCartList: () => request('GET',`cart/list`),
+  clearCart: () => request('POST',`cart/clear`)
 }
 
 module.exports = {

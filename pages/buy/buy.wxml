@@ -31,7 +31,7 @@
           <text>{{category.name}}</text>
         </view>
         <view class="goods-items">
-          <goods-card wx:for="{{category.type == 1 ? category.dishList : category.setmealList}}" wx:key="{{category.id}}" category="{{item}}" type="{{category.type}}"></goods-card>
+          <goods-card wx:for="{{category.type == 1 ? category.dishList : category.setmealList}}" wx:key="{{category.id}}" category="{{item}}" type="{{category.type}}" cartList="{{cartList}}" bind:customevent="refresh"></goods-card>
         </view>
       </view>
       <view class="space-for-cart"></view>
@@ -40,14 +40,38 @@
   <!-- 购物车 -->
   <view class="cart">
     <view class="cart-container">
-      <view class="left">
+      <view class="left" bindtap="popupShow">
         <image class="cart-img" src="../../static/cart.png" alt=""/>
         <text class="weui-badge weui-badge__status">{{cartList.length}}</text>
       </view>
-      <view class="price">￥520</view>
+      <view class="price" bindtap="popupShow" >￥{{totalPrice}}</view>
       <view class="right">
-        <button type="primary" class="pay-btn">去结算</button>
+        <button type="primary" class="pay-btn" bindtap="toPay">去结算</button>
       </view>
     </view>
   </view>
+  <!-- 购物车弹出层 -->
+  <van-popup class="popup" show="{{show}}" position="bottom" bind:close="onClose" overlay>
+    <view class="popup-container">
+      <view class="clear" bindtap="clearCart">清空</view>
+      <!-- <scroll-view scroll-y="true"> -->
+        <view wx:for="{{cartList}}" class="dish-item" wx:key="item.id" >
+          <view class="item-container">
+            <view class="name">
+              <view class="dishName">{{item.name}}</view>
+              <view class="dishFlavor">{{item.dishFlavor}}</view>
+            </view>
+            <view class="price">￥{{item.amount/100*item.number}}</view>
+            <view class="number">
+              <text class="iconfont icon-jian"  bindtap="subCart" id="{{index}}"></text>
+              <text class="number">{{item.number}}</text>
+              <text class="iconfont icon-jia" bindtap="addCart" id="{{index}}"></text>
+            </view>
+          </view>
+        </view>
+      <!-- </scroll-view> -->
+       
+      <view class="space-for-cart"></view>
+      </view>
+  </van-popup>
 </view>
