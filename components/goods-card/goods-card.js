@@ -90,7 +90,7 @@ Component({
           return item.value[item.isActive]
         })
         this.setData({
-          ['popupCart.dishFlavor']: JSON.stringify(arr),
+          ['popupCart.dishFlavor']: arr.length ? JSON.stringify(arr): '',
           ['popupCart.dishId']: this.properties.category.id
         })
       }else {

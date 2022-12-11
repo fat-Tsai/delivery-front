@@ -1,0 +1,26 @@
+.wrapper {
+  background-color: #F1F8FA;
+  min-height: 100vh;
+  .top {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10rpx 0 20rpx;
+  }
+  .mainBody {
+    padding: 10rpx 0 20rpx;
+    .detail {
+      .van-cell-storeName {
+        width: 420rpx;
+        overflow: hidden; // 超出文本隐藏
+        text-overflow: ellipsis; //文本超出显示省略号
+        white-space: nowrap; //不换行
+      }
+    }
+    .cell-group {
+    }
+  }
+  
+}

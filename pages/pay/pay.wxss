@@ -6,8 +6,17 @@
 }
 .wrapper .top,
 .wrapper .main,
+.wrapper .remark,
 .wrapper .method {
   margin-bottom: 38rpx;
+}
+.main .dishInfo {
+  display: flex;
+  justify-content: space-between;
+}
+.method .icon-weixin {
+  font-size: 38rpx;
+  padding: 0 6rpx;
 }
 .space-for-page {
   height: 88rpx;

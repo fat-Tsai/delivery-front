@@ -1,0 +1,40 @@
+<view class="container" bindtap="toDetail">
+  <view class="time">
+    <view>下单时间：{{order.orderTime}}</view>
+    <van-tag wx:if="{{order.type===1}}" color="#ADB838" text-color="#fff">自取</van-tag>
+    <van-tag wx:if="{{order.type===2}}" color="#FF976A" text-color="#fff">外卖</van-tag>
+  </view>
+  <view class="top">
+    <view class="left">
+      <view class="storeName">店铺名</view>
+      <view class="orderId">订单编号：{{order.id}}</view>
+    </view>
+    <view class="right">
+      <view class="status">
+        <van-button type="primary" size="small" wx:if="{{order.status===1}}" color="linear-gradient(to right, #FE5833, #EF0D25)">去支付</van-button>
+        <van-button type="primary" size="small" wx:if="{{order.status===2}}">再来一单</van-button>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <view class="img-container">
+      <image wx:for="{{list}}" src="../../static/logo.png" 	mode="heightFix"></image>
+    </view>
+    <view class="info">
+      <text class="num">共{{list.length}}件</text>
+      <text class="price">实付 ￥{{order.amount/100}}</text>
+    </view>
+  </view>
+  <!-- 弹窗询问是否付款 -->
+  <van-dialog
+    use-slot
+    title="前往微信付款"
+    confirmButtonText="确认付款"
+    confirm-button-color="#ADB838"
+    show="{{ show }}"
+    show-cancel-button
+    bind:close="onClose"
+    bind:confirm="onConfirm"
+  >
+  </van-dialog>
+</view>

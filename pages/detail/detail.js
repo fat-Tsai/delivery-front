@@ -1,4 +1,4 @@
-// pages/order/order.js
+// pages/detail/detail.js
 const api = require('../../utils/request').api
 Page({
 
@@ -6,25 +6,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderList: []
+    orderId: '',
+    list: [],
+    order: null
   },
-  refresh: function() {
-    this.getOrderList()
-  },
-  getOrderList: function() {
-    api.getOrderList().then(res => {
+  getList: function() {
+    api.getOrderDetailList(this.data.orderId).then(res => {
       if(res.code === 200) {
         this.setData({
-          orderList: res.data
+          list: res.data
         })
       }
     })
   },
+  getOrder: function() {
+    api.getOrderInfo(this.data.orderId).then(res => {
+      if(res.code === 200) {
+        this.setData({
+          order: res.data
+        })
+        console.log(this.data.order)
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getOrderList()
+    this.setData({
+      orderId: options.id
+    })
+    this.getList()
+    this.getOrder()
   },
 
   /**

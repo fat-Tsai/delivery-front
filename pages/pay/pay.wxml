@@ -3,52 +3,65 @@
 <view class="wrapper">
   <view class="top">
     <van-cell-group inset>
-      <van-cell title="店铺名"  is-link/>
-      <van-cell title="取餐时间" value="立即用餐" is-link/>
+      <van-cell title="店铺名" value="漳州新华西路店"/>
+      <!-- 需要增设一个取餐时间picker/selector -->
+      <van-cell title="取餐时间" value="立即用餐" bindtap="chooseTime"/>
       <van-cell center title="联系电话">
         <!-- <van-button slot="right-icon" name="search" class="custom-icon" /> -->
         <van-field
           value="{{ value }}"
-          placeholder="请输入用户名"
+          placeholder="请输入手机号"
           bind:change="onChange"
         />
-        <van-button slot="right-icon" type="primary" size="small">自动填写</van-button>
+        <van-button slot="right-icon" type="primary" size="small" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" color="#ADB838">自动填写</van-button>
       </van-cell>
     </van-cell-group>
   </view>
 
   <view class="main">
     <van-cell-group inset>
-      <van-cell center value="￥520" wx:for="{{list}}">
-        <view slot="title">
-          <text>菜品名称</text>
-          <text>X2</text>
+      <van-cell center value="￥{{item.amount/100*item.number}}" label="{{item.dishFlavor}}" wx:for="{{cartList}}">
+        <view slot="title" class="dishInfo">
+          <text class="dishName">{{item.name}}</text>
+          <text class="dishNumber">X{{item.number}}</text>
         </view>
       </van-cell>
-      <van-cell title="菜品名称" value="￥2"/>
+      <!-- <van-cell title="菜品名称" value="￥2"/>
       <van-cell title="打包费" value="￥2"/>
-      <van-cell title="优惠券" value="" is-link/>
+      <van-cell title="优惠券" value="" is-link/> -->
     </van-cell-group>
   </view>
 
+  <view class="remark">
+    <van-cell-group inset>
+      <van-cell title="订单备注"/>
+      <van-field
+        value="{{ message }}"
+        type="textarea"
+        placeholder="点击填写备注"
+        autosize
+      />
+    </van-cell-group>
+  </view>
+  
   <view class="method">
     <van-radio-group value="{{ radio }}" bind:change="onChange">
       <van-cell-group inset>
         <van-cell title="支付方式"/>
         <van-cell clickable data-name="1" bind:click="onClick">
           <view slot="title">
-            <text class="iconfont icon-weixin"></text>
-            <text>微信支付</text>
+            <text class="iconfont icon-weixin" style="color: #07c160"></text>
+            <text class="wxpay">微信支付</text>
           </view>
-          <van-radio slot="right-icon" name="1" />
+          <van-radio slot="right-icon" name="1" checked-color="#ADB838"/>
         </van-cell>
-        <van-cell clickable data-name="2" bind:click="onClick">
+        <!-- <van-cell clickable data-name="2" bind:click="onClick">
           <view slot="title">
             <text class="iconfont icon-shucai"></text>
             <text>余额支付</text>
           </view>
           <van-radio slot="right-icon" name="2" />
-        </van-cell>
+        </van-cell> -->
       </van-cell-group>
     </van-radio-group>
   </view>
@@ -58,10 +71,23 @@
   <view class="pay">
     <view class="pay-container">
       <view class="left">
-        <text>合计：</text>
-        <text class="price">￥520</text>
+        <text>待支付：</text>
+        <text class="price">￥{{totalPrice}}</text>
       </view>
-      <van-button type="primary" size="normal">付款</van-button>
+      <van-button type="primary" size="normal" color="#ADB838" bindtap="pay">付款</van-button>
     </view>
   </view>
+
+  <van-dialog
+    use-slot
+    title="前往微信付款"
+    confirmButtonText="确认付款"
+    confirm-button-color="#ADB838"
+    show="{{ show }}"
+    show-cancel-button
+    bind:close="onClose"
+    bind:confirm="onConfirm"
+  >
+  </van-dialog>
+
 </view>

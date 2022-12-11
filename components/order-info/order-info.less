@@ -1,0 +1,62 @@
+.container {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  .time {
+    margin: 10rpx 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    .tag {
+      
+    }
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:#9192938f 2rpx dashed;
+    .left {
+      flex: 1;
+      .storeName {
+        font-size: 36rpx;
+        margin-bottom: 6rpx;
+      }
+      .orderId {
+        font-size: 24rpx;
+        color: #919293;
+        padding-bottom: 8rpx;
+      }
+    }
+    .right {
+      // text-align: right;
+    }
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .img-container {
+      flex: 1;
+      // overflow: hidden;
+      display: flex;
+      align-items: center;
+      image {
+        padding: 10rpx 4rpx;
+        height: 80rpx;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      .num {
+        font-size: 26rpx;
+        color: #919293;
+      }
+      .price {
+        font-size: 28rpx;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.orderPage {
+  padding: 10rpx 20rpx;
+}
+.wrapper {
+  background-color: #F1F8FA;
+  height: 100vh;
+}

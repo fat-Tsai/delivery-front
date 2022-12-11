@@ -1,0 +1,5 @@
+<view class="wrapper">
+  <view class="orderPage" wx:for="{{orderList}}">
+    <order-info order="{{item}}" bind:customevent="refresh"></order-info>
+  </view>
+</view>

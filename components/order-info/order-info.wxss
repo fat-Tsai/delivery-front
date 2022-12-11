@@ -1,0 +1,55 @@
+.container {
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+.container .time {
+  margin: 10rpx 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+.container .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #9192938f 2rpx dashed;
+}
+.container .top .left {
+  flex: 1;
+}
+.container .top .left .storeName {
+  font-size: 36rpx;
+  margin-bottom: 6rpx;
+}
+.container .top .left .orderId {
+  font-size: 24rpx;
+  color: #919293;
+  padding-bottom: 8rpx;
+}
+.container .bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .bottom .img-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.container .bottom .img-container image {
+  padding: 10rpx 4rpx;
+  height: 80rpx;
+}
+.container .bottom .info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.container .bottom .info .num {
+  font-size: 26rpx;
+  color: #919293;
+}
+.container .bottom .info .price {
+  font-size: 28rpx;
+}

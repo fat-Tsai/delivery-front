@@ -37,7 +37,14 @@ const api = {
   shoppingCartAdd: (data) => request('POST',`cart/add`,data),
   shoppingCartSub: (data) => request('POST',`cart/sub`,data),
   getShoppingCartList: () => request('GET',`cart/list`),
-  clearCart: () => request('POST',`cart/clear`)
+  clearCart: () => request('POST',`cart/clear`),
+  getPhone: () => request('GET',`user/phone`),
+  addOrder: (data) => request('POST',`order/submit`,data),
+  getOrderList: () => request('GET',`order/list`),
+  getOrderImgList: (data) => request('GET',`orderDetail/imgList?orderId=${data}`),
+  toPayOrder: (data) => request('POST',`order/pay?id=${data}`),
+  getOrderDetailList: (data) => request('GET',`orderDetail/list?orderId=${data}`),
+  getOrderInfo: (data) => request('GET',`order?orderId=${data}`)
 }
 
 module.exports = {

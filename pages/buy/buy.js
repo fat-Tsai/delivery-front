@@ -71,7 +71,7 @@ Page({
   },
   toPay() {
     wx.navigateTo({
-      url: '../pay/pay'
+      url: '../pay/pay?type='+this.data.type
     })
     console.log('该跳转到支付页面了')
   },
@@ -205,7 +205,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // this.getTotalPrice()
+    this.getCategoryList();
+    this.getCartList();
   },
 
   /**

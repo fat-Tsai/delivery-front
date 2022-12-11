@@ -1,0 +1,21 @@
+.wrapper {
+  background-color: #F1F8FA;
+  min-height: 100vh;
+}
+.wrapper .top {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx 0 20rpx;
+}
+.wrapper .mainBody {
+  padding: 10rpx 0 20rpx;
+}
+.wrapper .mainBody .detail .van-cell-storeName {
+  width: 420rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
